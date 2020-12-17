@@ -1,0 +1,250 @@
+[2020.12.17 16:02:07.180][16:02:07.180] {main} WebApp[http://localhost:9081] Set web app root system property: 'webapp.root' = [/usr/weaver/monitor3/app/]
+[2020.12.17 16:02:07.183][16:02:07.182] {main} WebApp[http://localhost:9081] Set web app root system property: 'upgradeFilePath' = [/usr/weaver/monitor3/app/upgrade]
+[2020.12.17 16:02:07.183][16:02:07.183] {main} WebApp[http://localhost:9081] Set web app root system property: 'ruleDataFilePath' = [/usr/weaver/monitor3/app/data]
+[2020.12.17 16:02:07.184][16:02:07.183] {main} WebApp[http://localhost:9081] Set web app root system property: 'configFilePath' = [/usr/weaver/monitor3/app/config]
+[2020.12.17 16:02:07.205]启动数据库：===========================================================================
+[2020.12.17 16:02:07.206]启动数据库：===============================正在启动数据库=================================
+[2020.12.17 16:02:07.222]创建脚本文件/usr/weaver/monitor3///startdb.sh--->nohup /usr/weaver/monitor3/jdkm/bin/java -cp app/WEB-INF/lib/h2-1.4.199.jar org.h2.tools.Server -tcp -tcpPort 10092 -ifNotExists &
+[2020.12.17 16:02:07.740][16:02:07.740] {main} WebApp[http://localhost:9081] Initializing Spring FrameworkServlet 'appServlet'
+[2020.12.17 16:02:07.741][16:02:07.740] {main} FrameworkServlet 'appServlet': initialization started
+[2020.12.17 16:02:07.770][16:02:07.770] {main} Refreshing WebApplicationContext for namespace 'appServlet-servlet': startup date [Thu Dec 17 16:02:07 CST 2020]; root of context hierarchy
+[2020.12.17 16:02:07.811][16:02:07.811] {main} Loading XML bean definitions from ServletContext resource [/WEB-INF/classes/spring/app-context.xml]
+[2020.12.17 16:02:08.164][16:02:08.164] {main} Loading XML bean definitions from URL [jar:file:/usr/weaver/monitor3/app/WEB-INF/lib/monitor-core-0.0.1-SNAPSHOT.jar!/spring/core-datasource.xml]
+[2020.12.17 16:02:08.186][16:02:08.186] {main} Loading XML bean definitions from URL [jar:file:/usr/weaver/monitor3/app/WEB-INF/lib/monitor-core-0.0.1-SNAPSHOT.jar!/spring/core-service.xml]
+[2020.12.17 16:02:08.414][16:02:08.414] {main} Properties resource not found: /usr/weaver/monitor3/app/config/core.properties (没有那个文件或目录)
+[2020.12.17 16:02:09.666]2020-12-17 16:02:09,663 INFO  weaver.monitor.rule.scan.ScannerRule [Thread: main] - ScannerRule init start.
+[2020.12.17 16:02:09.669]2020-12-17 16:02:09,669 INFO  weaver.monitor.rule.scan.ScannerRule [Thread: main] - ScannerRule init end.
+[2020.12.17 16:02:09.679]2020-12-17 16:02:09,679 INFO  weaver.monitor.rule.scan.LoaderRule [Thread: main] - LoaderRule init start.
+[2020.12.17 16:02:09.679]2020-12-17 16:02:09,679 INFO  weaver.monitor.rule.scan.LoaderRule [Thread: main] - LoaderRule init end.
+[2020.12.17 16:02:09.784]2020-12-17 16:02:09,783 INFO  weaver.monitor.core.RuleEngine [Thread: main] - RuleEngine init start.
+[2020.12.17 16:02:09.784]2020-12-17 16:02:09,784 INFO  weaver.monitor.core.RuleEngine [Thread: main] - handleRule, id: weaver.monitor.rule.scan.ScannerRule, action: ADD
+[2020.12.17 16:02:09.785]2020-12-17 16:02:09,785 INFO  weaver.monitor.core.RuleEngine [Thread: main] - handleNewScheduleRule, id: weaver.monitor.rule.scan.ScannerRule
+[2020.12.17 16:02:09.789]2020-12-17 16:02:09,789 INFO  weaver.monitor.core.RuleEngine [Thread: main] - weaver.monitor.rule.scan.ScannerRule interval: 10s
+[2020.12.17 16:02:09.797]2020-12-17 16:02:09,797 INFO  weaver.monitor.core.RuleEngine [Thread: main] - add job to scheduler, jobKey: CORE.weaver.monitor.rule.scan.ScannerRule
+[2020.12.17 16:02:09.806]2020-12-17 16:02:09,806 INFO  weaver.monitor.core.RuleEngine [Thread: main] - handleRule, id: weaver.monitor.rule.scan.LoaderRule, action: ADD
+[2020.12.17 16:02:09.806]2020-12-17 16:02:09,806 INFO  weaver.monitor.core.RuleEngine [Thread: main] - handleNewScheduleRule, id: weaver.monitor.rule.scan.LoaderRule
+[2020.12.17 16:02:09.807]2020-12-17 16:02:09,807 INFO  weaver.monitor.core.RuleEngine [Thread: main] - weaver.monitor.rule.scan.LoaderRule interval: 10s
+[2020.12.17 16:02:09.807]2020-12-17 16:02:09,807 INFO  weaver.monitor.core.RuleEngine [Thread: main] - add job to scheduler, jobKey: CORE.weaver.monitor.rule.scan.LoaderRule
+[2020.12.17 16:02:09.807]2020-12-17 16:02:09,807 INFO  weaver.monitor.core.RuleEngine [Thread: main] - handleRule, id: weaver.monitor.rule.file.LogCleanerRule, action: ADD
+[2020.12.17 16:02:09.808]2020-12-17 16:02:09,807 INFO  weaver.monitor.core.RuleEngine [Thread: main] - handleNewScheduleRule, id: weaver.monitor.rule.file.LogCleanerRule
+[2020.12.17 16:02:09.808]2020-12-17 16:02:09,808 INFO  weaver.monitor.core.RuleEngine [Thread: main] - weaver.monitor.rule.file.LogCleanerRule cron: 0 0 3 * * ? 
+[2020.12.17 16:02:09.813]2020-12-17 16:02:09,813 INFO  weaver.monitor.core.RuleEngine [Thread: main] - add job to scheduler, jobKey: CORE.weaver.monitor.rule.file.LogCleanerRule
+[2020.12.17 16:02:09.813]2020-12-17 16:02:09,813 INFO  weaver.monitor.core.RuleEngine [Thread: main] - handleRule, id: weaver.monitor.rule.update.UpdaterRule, action: ADD
+[2020.12.17 16:02:09.814]2020-12-17 16:02:09,814 INFO  weaver.monitor.core.RuleEngine [Thread: main] - handleNewScheduleRule, id: weaver.monitor.rule.update.UpdaterRule
+[2020.12.17 16:02:09.814]2020-12-17 16:02:09,814 INFO  weaver.monitor.core.RuleEngine [Thread: main] - weaver.monitor.rule.update.UpdaterRule cron: 0 0 1 * * ? 
+[2020.12.17 16:02:09.815]2020-12-17 16:02:09,815 INFO  weaver.monitor.core.RuleEngine [Thread: main] - add job to scheduler, jobKey: CORE.weaver.monitor.rule.update.UpdaterRule
+[2020.12.17 16:02:09.816]2020-12-17 16:02:09,816 INFO  weaver.monitor.core.RuleEngine [Thread: main] - handleRule, id: weaver.monitor.rule.scan.ScheReloadRule, action: ADD
+[2020.12.17 16:02:09.816]2020-12-17 16:02:09,816 INFO  weaver.monitor.core.RuleEngine [Thread: main] - handleNewScheduleRule, id: weaver.monitor.rule.scan.ScheReloadRule
+[2020.12.17 16:02:09.816]2020-12-17 16:02:09,816 INFO  weaver.monitor.core.RuleEngine [Thread: main] - weaver.monitor.rule.scan.ScheReloadRule cron: 0 30 5 ? * L
+[2020.12.17 16:02:09.818]2020-12-17 16:02:09,817 INFO  weaver.monitor.core.RuleEngine [Thread: main] - add job to scheduler, jobKey: CORE.weaver.monitor.rule.scan.ScheReloadRule
+[2020.12.17 16:02:09.818]2020-12-17 16:02:09,818 INFO  weaver.monitor.core.RuleRecorder [Thread: main] - reloadAll begin...
+[2020.12.17 16:02:09.818]2020-12-17 16:02:09,818 INFO  weaver.monitor.core.RuleRecorder [Thread: main] - reload rule-base first...
+[2020.12.17 16:02:09.859]2020-12-17 16:02:09,859 INFO  weaver.monitor.core.RuleRecorder [Thread: main] - reload other rules...
+[2020.12.17 16:02:09.862]2020-12-17 16:02:09,862 INFO  weaver.monitor.core.RuleEngine [Thread: main] - RuleEngine init end.
+[2020.12.17 16:02:10.150][16:02:10.149] {main} Mapped "{[/version],methods=[GET]}" onto public java.lang.String weaver.monitor.controller.ExamineController.getVersion()
+[2020.12.17 16:02:10.156][16:02:10.156] {main} Mapped "{[/rollback],methods=[POST],consumes=[application/json]}" onto public weaver.monitor.controller.JsonResponse weaver.monitor.controller.ExamineController.rollback(java.util.Map<java.lang.String, java.lang.Object>)
+[2020.12.17 16:02:10.157][16:02:10.157] {main} Mapped "{[/examine],methods=[POST],consumes=[application/json]}" onto public weaver.monitor.controller.JsonResponse weaver.monitor.controller.ExamineController.examine(java.util.Map<java.lang.String, java.lang.Object>)
+[2020.12.17 16:02:10.159][16:02:10.158] {main} Mapped "{[/repair],methods=[POST],consumes=[application/json]}" onto public weaver.monitor.controller.JsonResponse weaver.monitor.controller.ExamineController.repair(java.util.Map<java.lang.String, java.lang.Object>)
+[2020.12.17 16:02:10.167][16:02:10.167] {main} Mapped "{[/main],methods=[GET]}" onto public java.lang.String weaver.monitor.controller.ExamineController.main(java.util.Map<java.lang.String, java.lang.Object>)
+[2020.12.17 16:02:10.170][16:02:10.170] {main} Mapped "{[/cp/hook/reloadInfo],methods=[POST],consumes=[application/json]}" onto public weaver.monitor.controller.JsonResponse weaver.monitor.controller.ExtController.toIsland(java.util.Map<java.lang.String, java.lang.Object>)
+[2020.12.17 16:02:10.171][16:02:10.171] {main} Mapped "{[/cg/hook/reload],methods=[GET]}" onto public java.lang.String weaver.monitor.controller.ExtController.toIsland(java.util.Map<java.lang.String, java.lang.Object>,java.util.Map<java.lang.String, java.lang.Object>)
+[2020.12.17 16:02:10.173][16:02:10.173] {main} Mapped "{[/captcha]}" onto public void weaver.monitor.controller.JcaptchaImageController.handleRequest(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+[2020.12.17 16:02:10.176][16:02:10.176] {main} Mapped "{[/cp/{operation:.+}],methods=[POST]}" onto public java.lang.Object weaver.monitor.controller.UIController.customPost(java.lang.String,javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse,java.util.Map<java.lang.String, java.lang.Object>) throws java.lang.Throwable
+[2020.12.17 16:02:10.177][16:02:10.177] {main} Mapped "{[/cg/{operation:.+}],methods=[GET]}" onto public java.lang.Object weaver.monitor.controller.UIController.customGet(java.lang.String,javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse,java.util.Map<java.lang.String, java.lang.Object>) throws java.lang.Throwable
+[2020.12.17 16:02:10.178][16:02:10.178] {main} Mapped "{[/cu/uploadFile/{operation:.+}],methods=[POST]}" onto public java.lang.Object weaver.monitor.controller.UIController.customUpload(java.lang.String,javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse,org.springframework.web.multipart.MultipartFile) throws java.lang.Throwable
+[2020.12.17 16:02:10.180][16:02:10.179] {main} Mapped "{[/cd/downloadFile/{operation:.+}],methods=[GET]}" onto public java.lang.Object weaver.monitor.controller.UIController.customDownload(java.lang.String,javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse,java.util.Map<java.lang.String, java.lang.Object>) throws java.lang.Throwable
+[2020.12.17 16:02:10.181][16:02:10.180] {main} Mapped "{[/cpx/logindo.html],methods=[POST]}" onto public java.lang.Object weaver.monitor.controller.UIController.logindo(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.lang.Throwable
+[2020.12.17 16:02:10.188][16:02:10.188] {main} Mapped "{[/schedule.json],methods=[POST],consumes=[application/json]}" onto public weaver.monitor.controller.JsonResponse weaver.monitor.controller.UpdateController.schedule()
+[2020.12.17 16:02:10.189][16:02:10.189] {main} Mapped "{[/pid],methods=[GET]}" onto public java.lang.String weaver.monitor.controller.UpdateController.pid(java.util.Map<java.lang.String, java.lang.Object>,java.util.Map<java.lang.String, java.lang.Object>)
+[2020.12.17 16:02:10.190][16:02:10.190] {main} Mapped "{[/island],methods=[GET]}" onto public java.lang.Object weaver.monitor.controller.UpdateController.toIsland(java.util.Map<java.lang.String, java.lang.Object>,java.util.Map<java.lang.String, java.lang.Object>)
+[2020.12.17 16:02:10.192][16:02:10.192] {main} Mapped "{[/allRules],methods=[GET]}" onto public java.lang.String weaver.monitor.controller.UpdateController.toAllRules(java.util.Map<java.lang.String, java.lang.Object>,java.util.Map<java.lang.String, java.lang.Object>)
+[2020.12.17 16:02:10.193][16:02:10.193] {main} Mapped "{[/getAllRuleClusterInfo.json],methods=[POST],consumes=[application/json]}" onto public weaver.monitor.controller.JsonResponse weaver.monitor.controller.UpdateController.getAllRuleClusterInfo(java.util.Map<java.lang.String, java.lang.Object>)
+[2020.12.17 16:02:10.194][16:02:10.194] {main} Mapped "{[/updateImmediately],methods=[POST],consumes=[application/json]}" onto public weaver.monitor.controller.JsonResponse weaver.monitor.controller.UpdateController.updateImmediately(java.util.Map<java.lang.String, java.lang.Object>)
+[2020.12.17 16:02:10.599][16:02:10.599] {main} Looking for @ControllerAdvice: WebApplicationContext for namespace 'appServlet-servlet': startup date [Thu Dec 17 16:02:07 CST 2020]; root of context hierarchy
+[2020.12.17 16:02:10.657][16:02:10.657] {main} Looking for @ControllerAdvice: WebApplicationContext for namespace 'appServlet-servlet': startup date [Thu Dec 17 16:02:07 CST 2020]; root of context hierarchy
+[2020.12.17 16:02:10.675][16:02:10.675] {main} Detected @ExceptionHandler methods in globalExceptionHandler
+[2020.12.17 16:02:10.703][16:02:10.703] {main} Mapped URL path [/static/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#0'
+[2020.12.17 16:02:10.706][16:02:10.706] {main} Mapped URL path [/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#1'
+[2020.12.17 16:02:10.708][16:02:10.708] {main} Mapped URL path [/tarlog/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#2'
+[2020.12.17 16:02:10.711][16:02:10.711] {main} Mapped URL path [/ghost/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#3'
+[2020.12.17 16:02:10.713][16:02:10.713] {main} Mapped URL path [/favicon.ico] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#4'
+[2020.12.17 16:02:10.807][16:02:10.807] {main} Starting beans in phase 2147483647
+[2020.12.17 16:02:10.825][16:02:10.825] {main} FrameworkServlet 'appServlet': initialization completed in 3084 ms
+[2020.12.17 16:02:10.825][16:02:10.825] {main} WebApp[http://localhost:9081] active
+[2020.12.17 16:02:10.827][16:02:10.827] {main} Host[] active
+[2020.12.17 16:02:32.582][16:02:32.582] {http--9081-1$1940413413} MontiorX, load LocalDynamicMonitorXFilter class start...
+[2020.12.17 16:02:32.586]load class start, className: weaver.monitor.filter.LocalDynamicMonitorXFilter
+[2020.12.17 16:02:32.593][16:02:32.593] {http--9081-1$1940413413} MontiorX, load LocalDynamicMonitorXFilter class: class weaver.monitor.filter.LocalDynamicMonitorXFilter
+[2020.12.17 16:02:32.593][16:02:32.593] {http--9081-1$1940413413} MontiorX, new LocalDynamicMonitorXFilter instance: weaver.monitor.filter.LocalDynamicMonitorXFilter@388d3dad
+[2020.12.17 16:04:54.229][16:04:54.229] {resin-destroy} Host[] stopping
+[2020.12.17 16:04:54.229][16:04:54.229] {resin-destroy} WebApp[http://localhost:9081] stopping
+[2020.12.17 16:04:54.230][16:04:54.230] {resin-destroy} WebApp[http://localhost:9081] Destroying Spring FrameworkServlet 'appServlet'
+[2020.12.17 16:04:54.230][16:04:54.230] {resin-destroy} Closing WebApplicationContext for namespace 'appServlet-servlet': startup date [Thu Dec 17 16:02:07 CST 2020]; root of context hierarchy
+[2020.12.17 16:04:54.232][16:04:54.232] {resin-destroy} Stopping beans in phase 2147483647
+[2020.12.17 16:04:54.237][16:04:54.237] {resin-destroy} Shutting down Quartz Scheduler
+[2020.12.17 16:05:29.955][16:05:29.955] {main} WebApp[http://localhost:9081] Set web app root system property: 'webapp.root' = [/usr/weaver/monitor3/app/]
+[2020.12.17 16:05:29.959][16:05:29.958] {main} WebApp[http://localhost:9081] Set web app root system property: 'upgradeFilePath' = [/usr/weaver/monitor3/app/upgrade]
+[2020.12.17 16:05:29.959][16:05:29.959] {main} WebApp[http://localhost:9081] Set web app root system property: 'ruleDataFilePath' = [/usr/weaver/monitor3/app/data]
+[2020.12.17 16:05:29.960][16:05:29.960] {main} WebApp[http://localhost:9081] Set web app root system property: 'configFilePath' = [/usr/weaver/monitor3/app/config]
+[2020.12.17 16:05:29.982]启动数据库：===========================================================================
+[2020.12.17 16:05:29.983]启动数据库：===============================正在启动数据库=================================
+[2020.12.17 16:05:29.998]创建脚本文件/usr/weaver/monitor3///startdb.sh--->nohup /usr/weaver/monitor3/jdkm/bin/java -cp app/WEB-INF/lib/h2-1.4.199.jar org.h2.tools.Server -tcp -tcpPort 10092 -ifNotExists &
+[2020.12.17 16:05:30.544]启动数据库：===>TCP server running at tcp://10.5.0.77:10092 (only local connections)
+[2020.12.17 16:05:30.545]启动数据库：===============================数据库已启动=================================
+[2020.12.17 16:05:30.763][16:05:30.762] {main} WebApp[http://localhost:9081] Initializing Spring FrameworkServlet 'appServlet'
+[2020.12.17 16:05:30.763][16:05:30.763] {main} FrameworkServlet 'appServlet': initialization started
+[2020.12.17 16:05:30.791][16:05:30.791] {main} Refreshing WebApplicationContext for namespace 'appServlet-servlet': startup date [Thu Dec 17 16:05:30 CST 2020]; root of context hierarchy
+[2020.12.17 16:05:30.833][16:05:30.833] {main} Loading XML bean definitions from ServletContext resource [/WEB-INF/classes/spring/app-context.xml]
+[2020.12.17 16:05:31.415][16:05:31.414] {main} Loading XML bean definitions from URL [jar:file:/usr/weaver/monitor3/app/WEB-INF/lib/monitor-core-0.0.1-SNAPSHOT.jar!/spring/core-datasource.xml]
+[2020.12.17 16:05:31.445][16:05:31.445] {main} Loading XML bean definitions from URL [jar:file:/usr/weaver/monitor3/app/WEB-INF/lib/monitor-core-0.0.1-SNAPSHOT.jar!/spring/core-service.xml]
+[2020.12.17 16:05:31.712][16:05:31.712] {main} Properties resource not found: /usr/weaver/monitor3/app/config/core.properties (没有那个文件或目录)
+[2020.12.17 16:05:33.156]2020-12-17 16:05:33,154 INFO  weaver.monitor.rule.scan.ScannerRule [Thread: main] - ScannerRule init start.
+[2020.12.17 16:05:33.159]2020-12-17 16:05:33,159 INFO  weaver.monitor.rule.scan.ScannerRule [Thread: main] - ScannerRule init end.
+[2020.12.17 16:05:33.168]2020-12-17 16:05:33,168 INFO  weaver.monitor.rule.scan.LoaderRule [Thread: main] - LoaderRule init start.
+[2020.12.17 16:05:33.168]2020-12-17 16:05:33,168 INFO  weaver.monitor.rule.scan.LoaderRule [Thread: main] - LoaderRule init end.
+[2020.12.17 16:05:33.275]2020-12-17 16:05:33,275 INFO  weaver.monitor.core.RuleEngine [Thread: main] - RuleEngine init start.
+[2020.12.17 16:05:33.276]2020-12-17 16:05:33,276 INFO  weaver.monitor.core.RuleEngine [Thread: main] - handleRule, id: weaver.monitor.rule.scan.ScannerRule, action: ADD
+[2020.12.17 16:05:33.276]2020-12-17 16:05:33,276 INFO  weaver.monitor.core.RuleEngine [Thread: main] - handleNewScheduleRule, id: weaver.monitor.rule.scan.ScannerRule
+[2020.12.17 16:05:33.280]2020-12-17 16:05:33,280 INFO  weaver.monitor.core.RuleEngine [Thread: main] - weaver.monitor.rule.scan.ScannerRule interval: 10s
+[2020.12.17 16:05:33.288]2020-12-17 16:05:33,288 INFO  weaver.monitor.core.RuleEngine [Thread: main] - add job to scheduler, jobKey: CORE.weaver.monitor.rule.scan.ScannerRule
+[2020.12.17 16:05:33.296]2020-12-17 16:05:33,296 INFO  weaver.monitor.core.RuleEngine [Thread: main] - handleRule, id: weaver.monitor.rule.scan.LoaderRule, action: ADD
+[2020.12.17 16:05:33.297]2020-12-17 16:05:33,297 INFO  weaver.monitor.core.RuleEngine [Thread: main] - handleNewScheduleRule, id: weaver.monitor.rule.scan.LoaderRule
+[2020.12.17 16:05:33.297]2020-12-17 16:05:33,297 INFO  weaver.monitor.core.RuleEngine [Thread: main] - weaver.monitor.rule.scan.LoaderRule interval: 10s
+[2020.12.17 16:05:33.297]2020-12-17 16:05:33,297 INFO  weaver.monitor.core.RuleEngine [Thread: main] - add job to scheduler, jobKey: CORE.weaver.monitor.rule.scan.LoaderRule
+[2020.12.17 16:05:33.298]2020-12-17 16:05:33,298 INFO  weaver.monitor.core.RuleEngine [Thread: main] - handleRule, id: weaver.monitor.rule.file.LogCleanerRule, action: ADD
+[2020.12.17 16:05:33.298]2020-12-17 16:05:33,298 INFO  weaver.monitor.core.RuleEngine [Thread: main] - handleNewScheduleRule, id: weaver.monitor.rule.file.LogCleanerRule
+[2020.12.17 16:05:33.298]2020-12-17 16:05:33,298 INFO  weaver.monitor.core.RuleEngine [Thread: main] - weaver.monitor.rule.file.LogCleanerRule cron: 0 0 3 * * ? 
+[2020.12.17 16:05:33.302]2020-12-17 16:05:33,302 INFO  weaver.monitor.core.RuleEngine [Thread: main] - add job to scheduler, jobKey: CORE.weaver.monitor.rule.file.LogCleanerRule
+[2020.12.17 16:05:33.303]2020-12-17 16:05:33,303 INFO  weaver.monitor.core.RuleEngine [Thread: main] - handleRule, id: weaver.monitor.rule.update.UpdaterRule, action: ADD
+[2020.12.17 16:05:33.303]2020-12-17 16:05:33,303 INFO  weaver.monitor.core.RuleEngine [Thread: main] - handleNewScheduleRule, id: weaver.monitor.rule.update.UpdaterRule
+[2020.12.17 16:05:33.303]2020-12-17 16:05:33,303 INFO  weaver.monitor.core.RuleEngine [Thread: main] - weaver.monitor.rule.update.UpdaterRule cron: 0 0 1 * * ? 
+[2020.12.17 16:05:33.304]2020-12-17 16:05:33,304 INFO  weaver.monitor.core.RuleEngine [Thread: main] - add job to scheduler, jobKey: CORE.weaver.monitor.rule.update.UpdaterRule
+[2020.12.17 16:05:33.305]2020-12-17 16:05:33,305 INFO  weaver.monitor.core.RuleEngine [Thread: main] - handleRule, id: weaver.monitor.rule.scan.ScheReloadRule, action: ADD
+[2020.12.17 16:05:33.305]2020-12-17 16:05:33,305 INFO  weaver.monitor.core.RuleEngine [Thread: main] - handleNewScheduleRule, id: weaver.monitor.rule.scan.ScheReloadRule
+[2020.12.17 16:05:33.305]2020-12-17 16:05:33,305 INFO  weaver.monitor.core.RuleEngine [Thread: main] - weaver.monitor.rule.scan.ScheReloadRule cron: 0 30 5 ? * L
+[2020.12.17 16:05:33.306]2020-12-17 16:05:33,306 INFO  weaver.monitor.core.RuleEngine [Thread: main] - add job to scheduler, jobKey: CORE.weaver.monitor.rule.scan.ScheReloadRule
+[2020.12.17 16:05:33.307]2020-12-17 16:05:33,307 INFO  weaver.monitor.core.RuleRecorder [Thread: main] - reloadAll begin...
+[2020.12.17 16:05:33.307]2020-12-17 16:05:33,307 INFO  weaver.monitor.core.RuleRecorder [Thread: main] - reload rule-base first...
+[2020.12.17 16:05:33.353]2020-12-17 16:05:33,352 INFO  weaver.monitor.core.RuleRecorder [Thread: main] - reload other rules...
+[2020.12.17 16:05:33.356]2020-12-17 16:05:33,356 INFO  weaver.monitor.core.RuleEngine [Thread: main] - RuleEngine init end.
+[2020.12.17 16:05:33.685][16:05:33.685] {main} Mapped "{[/main],methods=[GET]}" onto public java.lang.String weaver.monitor.controller.ExamineController.main(java.util.Map<java.lang.String, java.lang.Object>)
+[2020.12.17 16:05:33.687][16:05:33.687] {main} Mapped "{[/version],methods=[GET]}" onto public java.lang.String weaver.monitor.controller.ExamineController.getVersion()
+[2020.12.17 16:05:33.689][16:05:33.689] {main} Mapped "{[/rollback],methods=[POST],consumes=[application/json]}" onto public weaver.monitor.controller.JsonResponse weaver.monitor.controller.ExamineController.rollback(java.util.Map<java.lang.String, java.lang.Object>)
+[2020.12.17 16:05:33.690][16:05:33.690] {main} Mapped "{[/examine],methods=[POST],consumes=[application/json]}" onto public weaver.monitor.controller.JsonResponse weaver.monitor.controller.ExamineController.examine(java.util.Map<java.lang.String, java.lang.Object>)
+[2020.12.17 16:05:33.691][16:05:33.691] {main} Mapped "{[/repair],methods=[POST],consumes=[application/json]}" onto public weaver.monitor.controller.JsonResponse weaver.monitor.controller.ExamineController.repair(java.util.Map<java.lang.String, java.lang.Object>)
+[2020.12.17 16:05:33.693][16:05:33.693] {main} Mapped "{[/cg/hook/reload],methods=[GET]}" onto public java.lang.String weaver.monitor.controller.ExtController.toIsland(java.util.Map<java.lang.String, java.lang.Object>,java.util.Map<java.lang.String, java.lang.Object>)
+[2020.12.17 16:05:33.695][16:05:33.695] {main} Mapped "{[/cp/hook/reloadInfo],methods=[POST],consumes=[application/json]}" onto public weaver.monitor.controller.JsonResponse weaver.monitor.controller.ExtController.toIsland(java.util.Map<java.lang.String, java.lang.Object>)
+[2020.12.17 16:05:33.696][16:05:33.696] {main} Mapped "{[/captcha]}" onto public void weaver.monitor.controller.JcaptchaImageController.handleRequest(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+[2020.12.17 16:05:33.699][16:05:33.699] {main} Mapped "{[/cp/{operation:.+}],methods=[POST]}" onto public java.lang.Object weaver.monitor.controller.UIController.customPost(java.lang.String,javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse,java.util.Map<java.lang.String, java.lang.Object>) throws java.lang.Throwable
+[2020.12.17 16:05:33.700][16:05:33.700] {main} Mapped "{[/cg/{operation:.+}],methods=[GET]}" onto public java.lang.Object weaver.monitor.controller.UIController.customGet(java.lang.String,javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse,java.util.Map<java.lang.String, java.lang.Object>) throws java.lang.Throwable
+[2020.12.17 16:05:33.701][16:05:33.701] {main} Mapped "{[/cu/uploadFile/{operation:.+}],methods=[POST]}" onto public java.lang.Object weaver.monitor.controller.UIController.customUpload(java.lang.String,javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse,org.springframework.web.multipart.MultipartFile) throws java.lang.Throwable
+[2020.12.17 16:05:33.702][16:05:33.702] {main} Mapped "{[/cd/downloadFile/{operation:.+}],methods=[GET]}" onto public java.lang.Object weaver.monitor.controller.UIController.customDownload(java.lang.String,javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse,java.util.Map<java.lang.String, java.lang.Object>) throws java.lang.Throwable
+[2020.12.17 16:05:33.703][16:05:33.703] {main} Mapped "{[/cpx/logindo.html],methods=[POST]}" onto public java.lang.Object weaver.monitor.controller.UIController.logindo(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.lang.Throwable
+[2020.12.17 16:05:33.710][16:05:33.710] {main} Mapped "{[/schedule.json],methods=[POST],consumes=[application/json]}" onto public weaver.monitor.controller.JsonResponse weaver.monitor.controller.UpdateController.schedule()
+[2020.12.17 16:05:33.711][16:05:33.711] {main} Mapped "{[/pid],methods=[GET]}" onto public java.lang.String weaver.monitor.controller.UpdateController.pid(java.util.Map<java.lang.String, java.lang.Object>,java.util.Map<java.lang.String, java.lang.Object>)
+[2020.12.17 16:05:33.712][16:05:33.712] {main} Mapped "{[/island],methods=[GET]}" onto public java.lang.Object weaver.monitor.controller.UpdateController.toIsland(java.util.Map<java.lang.String, java.lang.Object>,java.util.Map<java.lang.String, java.lang.Object>)
+[2020.12.17 16:05:33.713][16:05:33.713] {main} Mapped "{[/allRules],methods=[GET]}" onto public java.lang.String weaver.monitor.controller.UpdateController.toAllRules(java.util.Map<java.lang.String, java.lang.Object>,java.util.Map<java.lang.String, java.lang.Object>)
+[2020.12.17 16:05:33.714][16:05:33.714] {main} Mapped "{[/getAllRuleClusterInfo.json],methods=[POST],consumes=[application/json]}" onto public weaver.monitor.controller.JsonResponse weaver.monitor.controller.UpdateController.getAllRuleClusterInfo(java.util.Map<java.lang.String, java.lang.Object>)
+[2020.12.17 16:05:33.716][16:05:33.715] {main} Mapped "{[/updateImmediately],methods=[POST],consumes=[application/json]}" onto public weaver.monitor.controller.JsonResponse weaver.monitor.controller.UpdateController.updateImmediately(java.util.Map<java.lang.String, java.lang.Object>)
+[2020.12.17 16:05:34.039][16:05:34.039] {main} Looking for @ControllerAdvice: WebApplicationContext for namespace 'appServlet-servlet': startup date [Thu Dec 17 16:05:30 CST 2020]; root of context hierarchy
+[2020.12.17 16:05:34.092][16:05:34.092] {main} Looking for @ControllerAdvice: WebApplicationContext for namespace 'appServlet-servlet': startup date [Thu Dec 17 16:05:30 CST 2020]; root of context hierarchy
+[2020.12.17 16:05:34.109][16:05:34.109] {main} Detected @ExceptionHandler methods in globalExceptionHandler
+[2020.12.17 16:05:34.136][16:05:34.136] {main} Mapped URL path [/static/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#0'
+[2020.12.17 16:05:34.139][16:05:34.139] {main} Mapped URL path [/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#1'
+[2020.12.17 16:05:34.141][16:05:34.141] {main} Mapped URL path [/tarlog/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#2'
+[2020.12.17 16:05:34.143][16:05:34.143] {main} Mapped URL path [/ghost/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#3'
+[2020.12.17 16:05:34.145][16:05:34.145] {main} Mapped URL path [/favicon.ico] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#4'
+[2020.12.17 16:05:34.232][16:05:34.232] {main} Starting beans in phase 2147483647
+[2020.12.17 16:05:34.249][16:05:34.248] {main} FrameworkServlet 'appServlet': initialization completed in 3485 ms
+[2020.12.17 16:05:34.249][16:05:34.249] {main} WebApp[http://localhost:9081] active
+[2020.12.17 16:05:34.251][16:05:34.251] {main} Host[] active
+[2020.12.17 16:05:59.085][16:05:59.085] {http--9081-0$863072373} MontiorX, load LocalDynamicMonitorXFilter class start...
+[2020.12.17 16:05:59.089]load class start, className: weaver.monitor.filter.LocalDynamicMonitorXFilter
+[2020.12.17 16:05:59.093][16:05:59.093] {http--9081-0$863072373} MontiorX, load LocalDynamicMonitorXFilter class: class weaver.monitor.filter.LocalDynamicMonitorXFilter
+[2020.12.17 16:05:59.094][16:05:59.094] {http--9081-0$863072373} MontiorX, new LocalDynamicMonitorXFilter instance: weaver.monitor.filter.LocalDynamicMonitorXFilter@38b19256
+[2020.12.17 16:19:23.963][16:19:23.963] {resin-destroy} Host[] stopping
+[2020.12.17 16:19:23.963][16:19:23.963] {resin-destroy} WebApp[http://localhost:9081] stopping
+[2020.12.17 16:19:23.964][16:19:23.964] {resin-destroy} WebApp[http://localhost:9081] Destroying Spring FrameworkServlet 'appServlet'
+[2020.12.17 16:19:23.965][16:19:23.964] {resin-destroy} Closing WebApplicationContext for namespace 'appServlet-servlet': startup date [Thu Dec 17 16:05:30 CST 2020]; root of context hierarchy
+[2020.12.17 16:19:23.967][16:19:23.967] {resin-destroy} Stopping beans in phase 2147483647
+[2020.12.17 16:19:23.974][16:19:23.974] {resin-destroy} Shutting down Quartz Scheduler
+[2020.12.17 16:20:08.851][16:20:08.851] {main} WebApp[http://localhost:9081] Set web app root system property: 'webapp.root' = [/usr/weaver/monitor3/app/]
+[2020.12.17 16:20:08.854][16:20:08.853] {main} WebApp[http://localhost:9081] Set web app root system property: 'upgradeFilePath' = [/usr/weaver/monitor3/app/upgrade]
+[2020.12.17 16:20:08.854][16:20:08.854] {main} WebApp[http://localhost:9081] Set web app root system property: 'ruleDataFilePath' = [/usr/weaver/monitor3/app/data]
+[2020.12.17 16:20:08.854][16:20:08.854] {main} WebApp[http://localhost:9081] Set web app root system property: 'configFilePath' = [/usr/weaver/monitor3/app/config]
+[2020.12.17 16:20:08.876]启动数据库：===========================================================================
+[2020.12.17 16:20:08.876]启动数据库：===============================正在启动数据库=================================
+[2020.12.17 16:20:08.892]创建脚本文件/usr/weaver/monitor3///startdb.sh--->nohup /usr/weaver/monitor3/jdkm/bin/java -cp app/WEB-INF/lib/h2-1.4.199.jar org.h2.tools.Server -tcp -tcpPort 10092 -ifNotExists &
+[2020.12.17 16:20:09.356]启动数据库：===>TCP server running at tcp://10.5.0.77:10092 (only local connections)
+[2020.12.17 16:20:09.357]启动数据库：===============================数据库已启动=================================
+[2020.12.17 16:20:09.563][16:20:09.563] {main} WebApp[http://localhost:9081] Initializing Spring FrameworkServlet 'appServlet'
+[2020.12.17 16:20:09.564][16:20:09.564] {main} FrameworkServlet 'appServlet': initialization started
+[2020.12.17 16:20:09.589][16:20:09.589] {main} Refreshing WebApplicationContext for namespace 'appServlet-servlet': startup date [Thu Dec 17 16:20:09 CST 2020]; root of context hierarchy
+[2020.12.17 16:20:09.628][16:20:09.628] {main} Loading XML bean definitions from ServletContext resource [/WEB-INF/classes/spring/app-context.xml]
+[2020.12.17 16:20:10.116][16:20:10.116] {main} Loading XML bean definitions from URL [jar:file:/usr/weaver/monitor3/app/WEB-INF/lib/monitor-core-0.0.1-SNAPSHOT.jar!/spring/core-datasource.xml]
+[2020.12.17 16:20:10.132][16:20:10.132] {main} Loading XML bean definitions from URL [jar:file:/usr/weaver/monitor3/app/WEB-INF/lib/monitor-core-0.0.1-SNAPSHOT.jar!/spring/core-service.xml]
+[2020.12.17 16:20:10.316][16:20:10.316] {main} Properties resource not found: /usr/weaver/monitor3/app/config/core.properties (没有那个文件或目录)
+[2020.12.17 16:20:11.531]2020-12-17 16:20:11,529 INFO  weaver.monitor.rule.scan.ScannerRule [Thread: main] - ScannerRule init start.
+[2020.12.17 16:20:11.534]2020-12-17 16:20:11,534 INFO  weaver.monitor.rule.scan.ScannerRule [Thread: main] - ScannerRule init end.
+[2020.12.17 16:20:11.542]2020-12-17 16:20:11,542 INFO  weaver.monitor.rule.scan.LoaderRule [Thread: main] - LoaderRule init start.
+[2020.12.17 16:20:11.543]2020-12-17 16:20:11,543 INFO  weaver.monitor.rule.scan.LoaderRule [Thread: main] - LoaderRule init end.
+[2020.12.17 16:20:11.661]2020-12-17 16:20:11,660 INFO  weaver.monitor.core.RuleEngine [Thread: main] - RuleEngine init start.
+[2020.12.17 16:20:11.662]2020-12-17 16:20:11,662 INFO  weaver.monitor.core.RuleEngine [Thread: main] - handleRule, id: weaver.monitor.rule.scan.ScannerRule, action: ADD
+[2020.12.17 16:20:11.663]2020-12-17 16:20:11,663 INFO  weaver.monitor.core.RuleEngine [Thread: main] - handleNewScheduleRule, id: weaver.monitor.rule.scan.ScannerRule
+[2020.12.17 16:20:11.671]2020-12-17 16:20:11,671 INFO  weaver.monitor.core.RuleEngine [Thread: main] - weaver.monitor.rule.scan.ScannerRule interval: 10s
+[2020.12.17 16:20:11.687]2020-12-17 16:20:11,687 INFO  weaver.monitor.core.RuleEngine [Thread: main] - add job to scheduler, jobKey: CORE.weaver.monitor.rule.scan.ScannerRule
+[2020.12.17 16:20:11.702]2020-12-17 16:20:11,702 INFO  weaver.monitor.core.RuleEngine [Thread: main] - handleRule, id: weaver.monitor.rule.scan.LoaderRule, action: ADD
+[2020.12.17 16:20:11.703]2020-12-17 16:20:11,703 INFO  weaver.monitor.core.RuleEngine [Thread: main] - handleNewScheduleRule, id: weaver.monitor.rule.scan.LoaderRule
+[2020.12.17 16:20:11.704]2020-12-17 16:20:11,704 INFO  weaver.monitor.core.RuleEngine [Thread: main] - weaver.monitor.rule.scan.LoaderRule interval: 10s
+[2020.12.17 16:20:11.705]2020-12-17 16:20:11,704 INFO  weaver.monitor.core.RuleEngine [Thread: main] - add job to scheduler, jobKey: CORE.weaver.monitor.rule.scan.LoaderRule
+[2020.12.17 16:20:11.705]2020-12-17 16:20:11,705 INFO  weaver.monitor.core.RuleEngine [Thread: main] - handleRule, id: weaver.monitor.rule.file.LogCleanerRule, action: ADD
+[2020.12.17 16:20:11.706]2020-12-17 16:20:11,706 INFO  weaver.monitor.core.RuleEngine [Thread: main] - handleNewScheduleRule, id: weaver.monitor.rule.file.LogCleanerRule
+[2020.12.17 16:20:11.707]2020-12-17 16:20:11,707 INFO  weaver.monitor.core.RuleEngine [Thread: main] - weaver.monitor.rule.file.LogCleanerRule cron: 0 0 3 * * ? 
+[2020.12.17 16:20:11.715]2020-12-17 16:20:11,715 INFO  weaver.monitor.core.RuleEngine [Thread: main] - add job to scheduler, jobKey: CORE.weaver.monitor.rule.file.LogCleanerRule
+[2020.12.17 16:20:11.715]2020-12-17 16:20:11,715 INFO  weaver.monitor.core.RuleEngine [Thread: main] - handleRule, id: weaver.monitor.rule.update.UpdaterRule, action: ADD
+[2020.12.17 16:20:11.716]2020-12-17 16:20:11,716 INFO  weaver.monitor.core.RuleEngine [Thread: main] - handleNewScheduleRule, id: weaver.monitor.rule.update.UpdaterRule
+[2020.12.17 16:20:11.717]2020-12-17 16:20:11,716 INFO  weaver.monitor.core.RuleEngine [Thread: main] - weaver.monitor.rule.update.UpdaterRule cron: 0 0 1 * * ? 
+[2020.12.17 16:20:11.718]2020-12-17 16:20:11,718 INFO  weaver.monitor.core.RuleEngine [Thread: main] - add job to scheduler, jobKey: CORE.weaver.monitor.rule.update.UpdaterRule
+[2020.12.17 16:20:11.719]2020-12-17 16:20:11,719 INFO  weaver.monitor.core.RuleEngine [Thread: main] - handleRule, id: weaver.monitor.rule.scan.ScheReloadRule, action: ADD
+[2020.12.17 16:20:11.720]2020-12-17 16:20:11,719 INFO  weaver.monitor.core.RuleEngine [Thread: main] - handleNewScheduleRule, id: weaver.monitor.rule.scan.ScheReloadRule
+[2020.12.17 16:20:11.720]2020-12-17 16:20:11,720 INFO  weaver.monitor.core.RuleEngine [Thread: main] - weaver.monitor.rule.scan.ScheReloadRule cron: 0 30 5 ? * L
+[2020.12.17 16:20:11.722]2020-12-17 16:20:11,722 INFO  weaver.monitor.core.RuleEngine [Thread: main] - add job to scheduler, jobKey: CORE.weaver.monitor.rule.scan.ScheReloadRule
+[2020.12.17 16:20:11.723]2020-12-17 16:20:11,723 INFO  weaver.monitor.core.RuleRecorder [Thread: main] - reloadAll begin...
+[2020.12.17 16:20:11.723]2020-12-17 16:20:11,723 INFO  weaver.monitor.core.RuleRecorder [Thread: main] - reload rule-base first...
+[2020.12.17 16:20:11.803]2020-12-17 16:20:11,802 INFO  weaver.monitor.core.RuleRecorder [Thread: main] - reload other rules...
+[2020.12.17 16:20:11.807]2020-12-17 16:20:11,807 INFO  weaver.monitor.core.RuleEngine [Thread: main] - RuleEngine init end.
+[2020.12.17 16:20:12.211][16:20:12.211] {main} Mapped "{[/version],methods=[GET]}" onto public java.lang.String weaver.monitor.controller.ExamineController.getVersion()
+[2020.12.17 16:20:12.215][16:20:12.215] {main} Mapped "{[/main],methods=[GET]}" onto public java.lang.String weaver.monitor.controller.ExamineController.main(java.util.Map<java.lang.String, java.lang.Object>)
+[2020.12.17 16:20:12.217][16:20:12.217] {main} Mapped "{[/rollback],methods=[POST],consumes=[application/json]}" onto public weaver.monitor.controller.JsonResponse weaver.monitor.controller.ExamineController.rollback(java.util.Map<java.lang.String, java.lang.Object>)
+[2020.12.17 16:20:12.218][16:20:12.218] {main} Mapped "{[/examine],methods=[POST],consumes=[application/json]}" onto public weaver.monitor.controller.JsonResponse weaver.monitor.controller.ExamineController.examine(java.util.Map<java.lang.String, java.lang.Object>)
+[2020.12.17 16:20:12.219][16:20:12.219] {main} Mapped "{[/repair],methods=[POST],consumes=[application/json]}" onto public weaver.monitor.controller.JsonResponse weaver.monitor.controller.ExamineController.repair(java.util.Map<java.lang.String, java.lang.Object>)
+[2020.12.17 16:20:12.222][16:20:12.222] {main} Mapped "{[/cg/hook/reload],methods=[GET]}" onto public java.lang.String weaver.monitor.controller.ExtController.toIsland(java.util.Map<java.lang.String, java.lang.Object>,java.util.Map<java.lang.String, java.lang.Object>)
+[2020.12.17 16:20:12.223][16:20:12.223] {main} Mapped "{[/cp/hook/reloadInfo],methods=[POST],consumes=[application/json]}" onto public weaver.monitor.controller.JsonResponse weaver.monitor.controller.ExtController.toIsland(java.util.Map<java.lang.String, java.lang.Object>)
+[2020.12.17 16:20:12.225][16:20:12.225] {main} Mapped "{[/captcha]}" onto public void weaver.monitor.controller.JcaptchaImageController.handleRequest(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+[2020.12.17 16:20:12.228][16:20:12.228] {main} Mapped "{[/cp/{operation:.+}],methods=[POST]}" onto public java.lang.Object weaver.monitor.controller.UIController.customPost(java.lang.String,javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse,java.util.Map<java.lang.String, java.lang.Object>) throws java.lang.Throwable
+[2020.12.17 16:20:12.230][16:20:12.230] {main} Mapped "{[/cg/{operation:.+}],methods=[GET]}" onto public java.lang.Object weaver.monitor.controller.UIController.customGet(java.lang.String,javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse,java.util.Map<java.lang.String, java.lang.Object>) throws java.lang.Throwable
+[2020.12.17 16:20:12.231][16:20:12.231] {main} Mapped "{[/cu/uploadFile/{operation:.+}],methods=[POST]}" onto public java.lang.Object weaver.monitor.controller.UIController.customUpload(java.lang.String,javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse,org.springframework.web.multipart.MultipartFile) throws java.lang.Throwable
+[2020.12.17 16:20:12.233][16:20:12.232] {main} Mapped "{[/cd/downloadFile/{operation:.+}],methods=[GET]}" onto public java.lang.Object weaver.monitor.controller.UIController.customDownload(java.lang.String,javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse,java.util.Map<java.lang.String, java.lang.Object>) throws java.lang.Throwable
+[2020.12.17 16:20:12.234][16:20:12.234] {main} Mapped "{[/cpx/logindo.html],methods=[POST]}" onto public java.lang.Object weaver.monitor.controller.UIController.logindo(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.lang.Throwable
+[2020.12.17 16:20:12.241][16:20:12.241] {main} Mapped "{[/schedule.json],methods=[POST],consumes=[application/json]}" onto public weaver.monitor.controller.JsonResponse weaver.monitor.controller.UpdateController.schedule()
+[2020.12.17 16:20:12.242][16:20:12.242] {main} Mapped "{[/pid],methods=[GET]}" onto public java.lang.String weaver.monitor.controller.UpdateController.pid(java.util.Map<java.lang.String, java.lang.Object>,java.util.Map<java.lang.String, java.lang.Object>)
+[2020.12.17 16:20:12.244][16:20:12.244] {main} Mapped "{[/island],methods=[GET]}" onto public java.lang.Object weaver.monitor.controller.UpdateController.toIsland(java.util.Map<java.lang.String, java.lang.Object>,java.util.Map<java.lang.String, java.lang.Object>)
+[2020.12.17 16:20:12.245][16:20:12.245] {main} Mapped "{[/allRules],methods=[GET]}" onto public java.lang.String weaver.monitor.controller.UpdateController.toAllRules(java.util.Map<java.lang.String, java.lang.Object>,java.util.Map<java.lang.String, java.lang.Object>)
+[2020.12.17 16:20:12.246][16:20:12.246] {main} Mapped "{[/getAllRuleClusterInfo.json],methods=[POST],consumes=[application/json]}" onto public weaver.monitor.controller.JsonResponse weaver.monitor.controller.UpdateController.getAllRuleClusterInfo(java.util.Map<java.lang.String, java.lang.Object>)
+[2020.12.17 16:20:12.248][16:20:12.248] {main} Mapped "{[/updateImmediately],methods=[POST],consumes=[application/json]}" onto public weaver.monitor.controller.JsonResponse weaver.monitor.controller.UpdateController.updateImmediately(java.util.Map<java.lang.String, java.lang.Object>)
+[2020.12.17 16:20:12.832][16:20:12.832] {main} Looking for @ControllerAdvice: WebApplicationContext for namespace 'appServlet-servlet': startup date [Thu Dec 17 16:20:09 CST 2020]; root of context hierarchy
+[2020.12.17 16:20:12.945][16:20:12.944] {main} Looking for @ControllerAdvice: WebApplicationContext for namespace 'appServlet-servlet': startup date [Thu Dec 17 16:20:09 CST 2020]; root of context hierarchy
+[2020.12.17 16:20:12.979][16:20:12.979] {main} Detected @ExceptionHandler methods in globalExceptionHandler
+[2020.12.17 16:20:13.032][16:20:13.031] {main} Mapped URL path [/static/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#0'
+[2020.12.17 16:20:13.035][16:20:13.035] {main} Mapped URL path [/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#1'
+[2020.12.17 16:20:13.038][16:20:13.038] {main} Mapped URL path [/tarlog/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#2'
+[2020.12.17 16:20:13.041][16:20:13.041] {main} Mapped URL path [/ghost/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#3'
+[2020.12.17 16:20:13.044][16:20:13.043] {main} Mapped URL path [/favicon.ico] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#4'
+[2020.12.17 16:20:13.140][16:20:13.140] {main} Starting beans in phase 2147483647
+[2020.12.17 16:20:13.158][16:20:13.158] {main} FrameworkServlet 'appServlet': initialization completed in 3594 ms
+[2020.12.17 16:20:13.158][16:20:13.158] {main} WebApp[http://localhost:9081] active
+[2020.12.17 16:20:13.160][16:20:13.160] {main} Host[] active
+[2020.12.17 16:21:03.724][16:21:03.724] {http--9081-8$1409188475} MontiorX, load LocalDynamicMonitorXFilter class start...
+[2020.12.17 16:21:03.726]load class start, className: weaver.monitor.filter.LocalDynamicMonitorXFilter
+[2020.12.17 16:21:03.729][16:21:03.729] {http--9081-8$1409188475} MontiorX, load LocalDynamicMonitorXFilter class: class weaver.monitor.filter.LocalDynamicMonitorXFilter
+[2020.12.17 16:21:03.729][16:21:03.729] {http--9081-8$1409188475} MontiorX, new LocalDynamicMonitorXFilter instance: weaver.monitor.filter.LocalDynamicMonitorXFilter@7de81692
