@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html style="height: 100%">
+   <head>
+       <meta charset="utf-8">
+   </head>
+   <body style="height: 100%; margin: 0">
+       <div id="container" style="height: 100%"></div>
+       <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts@4/dist/echarts.min.js"></script>
+       <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts-gl@1/dist/echarts-gl.min.js"></script>
+       <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts-stat@1/dist/ecStat.min.js"></script>
+       <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts@4/dist/extension/dataTool.min.js"></script>
+       <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts@4/map/js/china.js"></script>
+       <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts@4/map/js/world.js"></script>
+       <script type="text/javascript" src="https://api.map.baidu.com/api?v=2.0&ak=xfhhaTThl11qYVrqLZii6w8qE5ggnhrY&__ec_v__=20190126"></script>
+       <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts@4/dist/extension/bmap.min.js"></script>
+       <script type="text/javascript">
+var dom = document.getElementById("container");
+var myChart = echarts.init(dom);
+var app = {};
+option = null;
+var data = [{
+    name: 'Institutions',
+    itemStyle: {
+        color: '#da0d68'
+    },
+    children: [{
+        name: 'Préfectures',
+        value: 1,
+        itemStyle: {
+            color: '#975e6d'
+        },
+        children: [{
+            name: 'N',
+            value: 1,
+            itemStyle: {
+                color: '#f99e1c'
+            },
+            children: [{
+                name: 'Producteur\n&\nAnnonceur ',
+                value: 1,
+                itemStyle: {
+                    color: '#975e6d'
+                },
+            }]   
+        }]
+        
+    }, {
+        name: 'Ministère de la\ntransition\nécologique',
+        itemStyle: {
+            color: '#e0719c'
+        },
+        children: [{
+            name: 'N',
+            value: 1,
+            itemStyle: {
+                color: '#f99e1c'
+            },
+            children: [{
+                name: 'Producteur\n&\nAnnonceur ',
+                value: 1,
+                itemStyle: {
+                    color: '#e0719c'
+                },
+            }]   
+        }]
+    }]
+}, {
+    name: 'Associations,\nthinktanks',
+    itemStyle: {
+        color: '#da1d23'
+    },
+    children: [{
+        name: 'La Fédération\nNationale des\nChasseurs(FNC)',
+        itemStyle: {
+            color: '#dd4c51'
+        },
+        children: [{
+            name: 'P',
+            value: 1,
+            itemStyle: {
+                color: '#5e9a80'
+            },
+            children: [{
+                name: "Un relais d'info ",
+                value: 1,
+                itemStyle: {
+                    color: '#dd4c51'
+                },
+            }]   
+        }]
+    }, {
+        name: "30 millions\nd'amis",
+        itemStyle: {
+            color: '#c94a44'
+        },
+        children: [{
+            name: 'C',
+            value: 1,
+            itemStyle: {
+                color: '#ad213e'
+            },
+            children: [{
+                name: "Ils militent pour l'arrêt total\nde la chasse et critiquent\nle manque d'encadrement\nautour de la pratique ",
+                value: 1,
+                itemStyle: {
+                    color: '#c94a44'
+                },
+            }]   
+        }]
+    }, {
+        name: "One voice",
+        itemStyle: {
+            color: '#f37674'
+        },
+        children: [{
+            name: 'C',
+            value: 1,
+            itemStyle: {
+                color: '#ad213e'
+           },
+            children: [{
+                name: "Ils militent pour la\nprotection des\nanimaux et mettent\nen avant les\ndérives de la\nchasse ",
+                value: 1,
+                itemStyle: {
+                    color: '#f37674'
+                },
+            }]   
+        }]
+    }]
+}, {
+    name: 'Personnalités\npolitiques',
+    itemStyle: {
+        color: '#187a2f'
+    },
+    children: [{
+        name: 'Loic\nDombreval',
+        itemStyle: {
+            color: '#3aa255'
+        },
+        children: [{
+            name: 'C',
+            value: 1,
+            itemStyle: {
+                color: '#ad213e'
+           },
+            children: [{
+                name: "La\ncommission ",
+                value: 1,
+                itemStyle: {
+                    color: '#3aa255'
+                },
+            }] 
+        }]
+    }, {
+        name: 'Barbara\nPompili',
+        itemStyle: {
+            color: '#a2b029'
+        },
+        children: [{
+            name: 'N',
+            value: 1,
+            itemStyle: {
+                color: '#f99e1c'
+           },
+            children: [{
+                name: "En charge du\nMinistère de\nla transition\nécologique ",
+                value: 1,
+                itemStyle: {
+                    color: '#a2b029'
+                },
+            }] 
+        }]
+    }]
+}, {
+    name: 'Infleunceurs\nréseaux sociaux,\nmilitants,\njournalistes',
+    itemStyle: {
+        color: '#a87b64'
+    },
+    children: [{
+        name: 'Hugo Clément',
+        value: 1,
+        itemStyle: {
+            color: '#bb764c'
+        },
+        children: [{
+            name: 'C',
+            value: 1,
+            itemStyle: {
+                color: '#ad213e'
+           },
+            children: [{
+                name: "Il met en lumière les cas de\nmaltraitances animales\nnotament la chasse ",
+                value: 1,
+                itemStyle: {
+                    color: '#bb764c'
+                },
+            }] 
+        }]
+
+    }]
+}, {
+    name: 'Site portails\nou\nblogs spécialisés',
+    itemStyle: {
+        color: '#e65832'
+    },
+    children: [{
+        name: 'Le chasseur\nFrançais',
+        itemStyle: {
+            color: '#f89a80'
+        },
+        children: [{
+            name: 'N',
+            value: 1,
+            itemStyle: {
+                color: '#f99e1c'
+           },
+            children: [{
+                name: "Le site met en avant\nles informations sur\nla chasse pendant le\nconfinement ",
+                value: 1,
+                itemStyle: {
+                    color: '#f89a80'
+                },
+            }] 
+        }]
+    }]
+}, {
+    name: 'Jounaux\nrégionaux',
+    itemStyle: {
+        color: '#0aa3b5'
+    },
+    children: [{
+        name: 'Midi Libre',
+        itemStyle: {
+            color: '#9db2b7'
+        },
+        children: [{
+            name: 'N',
+            value: 1,
+            itemStyle: {
+                color: '#f99e1c'
+            }
+        }, {
+        }]
+    }, {
+        name: "L'Ardennais",
+        itemStyle: {
+            color: '#76c0cb'
+        },
+        children: [{
+            name: 'N',
+            value: 1,
+            itemStyle: {
+                color: '#f99e1c'
+            }
+        }]
+
+    }]
+}];
+
+option = {
+    title: {
+        text: "L'autorisation de la chasse pendant le confinement Octobre 2020",
+        subtext: 'Les parties prenantes\n\n\n\nN-Neutre\nP-Pour\nC-Contre',
+        textStyle: {
+            fontSize: 14,
+            align: 'center'
+        },
+        text0style:{
+            frontsize: 12,
+            align: 'center'
+        },
+        subtextStyle: {
+            align: 'center'
+        },
+        sublink: 'https://docs.google.com/spreadsheets/d/1e_qUekzfBMpQFqNPEFELUobJ2PTXdyEQ/edit#gid=1396698534'
+    },
+    series: {
+        type: 'sunburst',
+        highlightPolicy: 'ancestor',
+        data: data,
+        radius: [0, '95%'],
+        sort: null,
+        levels: [{}, {
+            r0: '10%',
+            r: '30%',
+            itemStyle: {
+                borderWidth: 3
+            },
+            label: {
+                rotate: 'tangential'
+            }
+        }, {
+            r0: '30%',
+            r: '60%',
+            label: {
+                align: 'right'
+            }
+        }, {
+            r0: '60%',
+            r: '70%',
+            label: {
+               align: 'right'
+            }
+        }, {
+            r0: '70%',
+            r: '70%',
+            label: {
+                position: 'outside',
+                padding: 1,
+                silent: false
+            },
+            itemStyle: {
+                borderWidth: 3
+            }
+        }]
+    }
+};
+;
+if (option && typeof option === "object") {
+    myChart.setOption(option, true);
+}
+       </script>
+   </body>
+</html>
+<a href="http:”//www.lang.com>cartography</a>
+
