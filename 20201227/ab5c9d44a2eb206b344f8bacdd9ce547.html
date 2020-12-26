@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <style>
+      table {
+        width: 500px;
+        border: 1px solid #000;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <my-table :list="list">
+        <template v-slot:default="obj">
+          <button @click="delItem(obj.item.id)">删除</button>
+        </template>
+      </my-table>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+      Vue.component('my-table', {
+        template: `
+        <table>
+          <tr>
+            <th>序号</th>
+            <th>姓名</th>
+            <th>年龄</th>
+            <th>描述</th>
+            <th>操作</th>
+          </tr>
+          <tr v-for="(item, index) in list">
+            <td> {{ index + 1 }} </td>
+            <td> {{ item.name }} </td>
+            <td> {{ item.age }} </td>
+            <td> {{ item.desc }} </td>
+            <td>
+              <slot :item="item"></slot>
+            </td>
+          </tr>
+        </table>
+        `,
+        props: ['list']
+      })
+      const vm = new Vue({
+        el: '#app',
+        data: {
+          list: [
+            { id: 11, name: '李四', age: 18, desc: '还好' },
+            { id: 12, name: '赵六', age: 18, desc: '中国好男人啦' },
+            { id: 15, name: '茵茵', age: 17, desc: '小姑凉' },
+            { id: 22, name: '阮阮', age: 17, desc: '表面是小姑凉，其实是大姑凉了' }
+          ]
+        },
+        methods: {
+          delItem (id) {
+            this.list = this.list.filter(res => res.id != id)
+          }
+        }
+      })
+    </script>
+  </body>
+</html>
